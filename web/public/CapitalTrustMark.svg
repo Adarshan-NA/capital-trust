@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Capital Trust mark (exact match)">
+  <defs>
+    <linearGradient id="ctGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1FBF72"/>
+      <stop offset="1" stop-color="#0B2D4D"/>
+    </linearGradient>
+  </defs>
+  <!-- This group is copied from the wordmark icon to ensure a pixel-perfect match -->
+  <g transform="translate(16,16)">
+    <circle cx="44" cy="44" r="44" fill="url(#ctGrad)"/>
+    <path d="M44 24
+             C38.6 26.9 33.2 26.9 27.8 24
+             V40
+             C27.8 51.4 35.9 61 44 63.6
+             C52.1 61 60.2 51.4 60.2 40
+             V24
+             C54.8 26.9 49.4 26.9 44 24Z"
+          fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linejoin="round"/>
+    <path d="M35 44.5 L41.7 51.2 L53.5 38.3"
+          stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+</svg>

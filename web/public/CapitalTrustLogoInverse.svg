@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="520" height="120" viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Capital Trust (inverse)">
+  <defs>
+    <style>
+      .wordmark { font-family: 'Source Serif Pro', Georgia, serif; font-weight: 700; font-size: 54px;
+                  font-kerning: normal; letter-spacing: 0.2px; }
+    </style>
+  </defs>
+
+  <!-- Icon tuned for dark backgrounds -->
+  <g transform="translate(16,16)">
+    <circle cx="44" cy="44" r="44" fill="#FFFFFF" opacity="0.92"/>
+    <path d="M44 24
+             C38.6 26.9 33.2 26.9 27.8 24
+             V40
+             C27.8 51.4 35.9 61 44 63.6
+             C52.1 61 60.2 51.4 60.2 40
+             V24
+             C54.8 26.9 49.4 26.9 44 24Z"
+          fill="none" stroke="#0B2D4D" stroke-width="3.2" stroke-linejoin="round"/>
+    <path d="M35 44.5 L41.7 51.2 L53.5 38.3"
+          stroke="#0B2D4D" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <text class="wordmark" x="128" y="76">
+    <tspan fill="#FFFFFF">Capital </tspan>
+    <tspan fill="#A7F3D0">Trust</tspan>
+  </text>
+</svg>

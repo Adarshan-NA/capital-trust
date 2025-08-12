@@ -1,0 +1,17 @@
+# Node / pnpm
+node_modules/
+.pnpm-store/
+*.log
+
+# Builds / caches
+dist/
+web/dist/
+api/dist/
+.vite/
+.eslintcache
+
+# Env & local-only
+api/.env
+web/.env.local
+uploads/
+.DS_Store

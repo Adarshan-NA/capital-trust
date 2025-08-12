@@ -1,0 +1,13 @@
+{
+  "name": "capital-trust",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c cyan,magenta \"pnpm --filter ./api dev\" \"pnpm --filter ./web dev\"",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
