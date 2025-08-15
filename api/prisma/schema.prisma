@@ -1,10 +1,127 @@
 generator client {
   provider = "prisma-client-js"
 }
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum Province {
+  AB
+  BC
+  MB
+  NB
+  NL
+  NS
+  NT
+  NU
+  ON
+  PE
+  QC
+  SK
+  YT
+}
+
+enum Residency {
+  citizen
+  permanent_resident
+  other
+}
+
+enum DocumentType {
+  drivers_license
+  passport
+  photo_id
+}
+
+enum IntendedUse {
+  everyday
+  savings
+  student
+  business
+}
+
+enum Employment {
+  employed
+  self_employed
+  student
+  unemployed
+  retired
+}
+
+enum CaseStatus {
+  submitted
+  pending_review
+  rejected
+  approved
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum AuditEvent {
+  case_created
+  risk_scored
+}
+
+model Customer {
+  id         String    @id @default(cuid())
+  email      String    @unique
+  firstName  String
+  lastName   String
+  phone      String
+  dob        DateTime
+  address1   String
+  address2   String?
+  city       String
+  province   Province
+  postal     String
+  residency  Residency
+  createdAt  DateTime  @default(now())
+  cases      Case[]
+}
+
+model Case {
+  id           String         @id @default(cuid())
+  customerId   String
+  customer     Customer       @relation(fields: [customerId], references: [id])
+  documentType DocumentType
+  employment   Employment
+  income       String         // keep simple to mirror UI values like "50k-100k"
+  intendedUse  IntendedUse
+  status       CaseStatus     @default(submitted)
+  submittedAt  DateTime       @default(now())
+  createdAt    DateTime       @default(now())
+  risk         RiskAssessment?
+  audits       AuditLog[]
+}
+
+model RiskAssessment {
+  id       String    @id @default(cuid())
+  caseId   String    @unique
+  case     Case      @relation(fields: [caseId], references: [id])
+  score    Int
+  level    RiskLevel
+  reasons  String[]  // Postgres text[]
+  createdAt DateTime @default(now())
+}
+
+model AuditLog {
+  id       String     @id @default(cuid())
+  caseId   String
+  case     Case       @relation(fields: [caseId], references: [id])
+  event    AuditEvent
+  data     Json?
+  createdAt DateTime  @default(now())
+
+  @@index([caseId])
+}
+
+/* keep from earlier experiments so old routes still compile */
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
