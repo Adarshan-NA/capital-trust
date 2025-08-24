@@ -1,44 +1,42 @@
 export default function Support() {
   return (
     <div className="container" style={{ padding: "32px 0" }}>
-      <section className="hero-slim">
-        <h1>Support</h1>
-        <p className="muted">
-          We’re here 24/7. Choose the option that works for you.
-        </p>
-      </section>
+      <h2 style={{ marginTop: 0 }}>Support</h2>
+      <p style={{ color: "var(--ct-slate)", marginBottom: 20 }}>
+        We’re here 24/7. Choose the channel that works best for you.
+      </p>
 
-      <div className="grid-3">
-        <article className="card">
-          <h3>Call us</h3>
-          <p className="muted">
-            1-800-000-0000
-            <br />
-            Mon–Sun, 24 hours
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+          gap: 16,
+        }}
+      >
+        <div className="card">
+          <strong>Chat</strong>
+          <p style={{ margin: "8px 0 12px" }}>
+            Get quick answers from our support team.
           </p>
-        </article>
-        <article className="card">
-          <h3>Secure message</h3>
-          <p className="muted">Sign in and send us a secure message.</p>
-          <a className="btn" href="/signin">
-            Sign in →
-          </a>
-        </article>
-        <article className="card">
-          <h3>Visit a branch</h3>
-          <p className="muted">Find the nearest branch and hours.</p>
-          <a className="btn" href="#">
-            Find a branch →
-          </a>
-        </article>
-      </div>
+          <a href="#">Start chat →</a>
+        </div>
 
-      <section className="card" style={{ marginTop: 16 }}>
-        <h2 style={{ marginTop: 0 }}>Report fraud</h2>
-        <p>
-          If you suspect fraud, call us immediately and change your passwords.
-        </p>
-      </section>
+        <div className="card">
+          <strong>Email</strong>
+          <p style={{ margin: "8px 0 12px" }}>
+            We usually respond within a business day.
+          </p>
+          <a href="mailto:support@capitaltrust.example">Email us →</a>
+        </div>
+
+        <div className="card">
+          <strong>Security & fraud</strong>
+          <p style={{ margin: "8px 0 12px" }}>
+            Report suspicious activity and learn best practices.
+          </p>
+          <a href="/support/security">View tips →</a>
+        </div>
+      </div>
     </div>
   );
 }
