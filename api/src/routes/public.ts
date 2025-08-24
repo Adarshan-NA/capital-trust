@@ -119,7 +119,7 @@ publicRouter.post('/onboard', async (req, res) => {
   }
 })
 
-// Optional: simple fetch for manual verification
+// Get all cases (public view)
 publicRouter.get('/cases/:id', async (req, res) => {
   const c = await prisma.case.findUnique({
     where: { id: req.params.id },
@@ -128,3 +128,5 @@ publicRouter.get('/cases/:id', async (req, res) => {
   if (!c) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Case not found' } })
   res.json(c)
 })
+
+export default publicRouter

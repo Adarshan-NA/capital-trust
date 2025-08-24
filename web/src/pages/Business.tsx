@@ -1,32 +1,40 @@
 export default function Business() {
   return (
-    <div className="container" style={{ padding: "40px 0" }}>
-      <h1 style={{ fontFamily: "var(--font-serif)" }}>Business banking</h1>
-      <p style={{ color: "var(--ct-slate)" }}>
-        Accounts and services for SMBs and sole proprietors.
+    <div className="container" style={{ padding: "32px 0" }}>
+      <h2 style={{ marginTop: 0 }}>Business banking</h2>
+      <p style={{ color: "var(--ct-slate)", marginBottom: 20 }}>
+        Accounts, payments, and cash management designed for growth.
       </p>
+
       <div
         style={{
           display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
           gap: 16,
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          marginTop: 16,
         }}
       >
         <div className="card">
-          <strong>Business Chequing</strong>
-          <p>Tiered-fee structure with free e-Deposits.</p>
+          <strong>Business Operating</strong>
+          <p style={{ margin: "8px 0 12px" }}>
+            Tiered pricing; unlimited e-Transfers; accountant access.
+          </p>
           <a href="/open-account">Open now →</a>
         </div>
+
         <div className="card">
-          <strong>Payments</strong>
-          <p>Accept cards and Interac with simple pricing.</p>
-          <a href="/support">Talk to us →</a>
+          <strong>USD Holding</strong>
+          <p style={{ margin: "8px 0 12px" }}>
+            Keep and pay in USD with competitive FX and no monthly fee.
+          </p>
+          <a href="/open-account">Open now →</a>
         </div>
+
         <div className="card">
-          <strong>Credit</strong>
-          <p>Lines of credit with transparent terms.</p>
-          <a href="/support">Get details →</a>
+          <strong>Payment APIs</strong>
+          <p style={{ margin: "8px 0 12px" }}>
+            Automate payouts and reconciliations via secure APIs.
+          </p>
+          <a href="/support">Talk to sales →</a>
         </div>
       </div>
     </div>

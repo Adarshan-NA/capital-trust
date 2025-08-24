@@ -1,42 +1,71 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="header">
-      <div className="container navbar">
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <a href="/" aria-label="Capital Trust home">
-            <img
-              src="/CapitalTrustLogo.svg"
-              alt=""
-              width={180}
-              height={36}
-              style={{ display: "block" }}
-            />
-          </a>
-        </div>
+    <header className="site-header">
+      <div className="container header-inner">
+        <NavLink to="/" className="brand" aria-label="Capital Trust home">
+          <img src="/CapitalTrustLogo.svg" alt="" width={200} height={128} />
+          {/* <span>Capital Trust</span> */}
+        </NavLink>
+
+        <button
+          className="nav-toggle"
+          aria-expanded={open}
+          aria-controls="primary-nav"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className="sr-only">Toggle navigation</span>☰
+        </button>
 
         <nav
-          className="navlinks"
-          style={{ display: "flex", gap: 8, marginLeft: "auto" }}
+          id="primary-nav"
+          className={`nav ${open ? "open" : ""}`}
+          aria-label="Primary"
         >
-          <NavLink to="/" end>
-            Home
+          <NavLink
+            to="/personal"
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+          >
+            Personal
           </NavLink>
-          <NavLink to="/personal">Personal</NavLink>
-          <NavLink to="/business">Business</NavLink>
-          <NavLink to="/investing">Investing</NavLink>
-          <NavLink to="/rates">Rates</NavLink>
-          <NavLink to="/support">Support</NavLink>
+          <NavLink
+            to="/business"
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+          >
+            Business
+          </NavLink>
+          <NavLink
+            to="/investing"
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+          >
+            Investing
+          </NavLink>
+          <NavLink
+            to="/rates"
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+          >
+            Rates
+          </NavLink>
+          <NavLink
+            to="/support"
+            className={({ isActive }) => (isActive ? "active" : undefined)}
+          >
+            Support
+          </NavLink>
+
+          <div className="nav-cta">
+            <NavLink to="/signin" className="btn btn-ghost">
+              Sign in
+            </NavLink>
+            <NavLink to="/open-account" className="btn btn-primary">
+              Open account
+            </NavLink>
+          </div>
         </nav>
-        <div style={{ display: "flex", gap: 10 }}>
-          <NavLink to="/sign-in" className="btn btn-ghost">
-            Sign in
-          </NavLink>
-          <NavLink to="/open-account" className="btn btn-primary">
-            Open an account
-          </NavLink>
-        </div>
       </div>
     </header>
   );

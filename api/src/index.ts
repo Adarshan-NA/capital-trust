@@ -1,24 +1,35 @@
 import express from 'express'
-import helmet from 'helmet'
-import cors from 'cors'
 import rateLimit from 'express-rate-limit'
-import { publicRouter } from './routes/public.js'
+import { sessionMiddleware } from './middleware/session.js'
+import authRoutes from './routes/auth.js'
+import staffRoutes from './routes/staff.js'
+import customerRoutes from './routes/customer.js'
+import publicRoutes from './routes/public.js'
 
 const app = express()
-const PORT = process.env.PORT ? Number(process.env.PORT) : 3020
-const WEB_ORIGIN = process.env.WEB_ORIGIN || 'http://localhost:5173'
 
-app.use(helmet())
-app.use(cors({ origin: WEB_ORIGIN }))
-app.use(express.json({ limit: '100kb' }))
+app.use(express.json())
+app.use(sessionMiddleware())
 
-const publicLimiter = rateLimit({ windowMs: 60_000, max: 60 }) // 60/min
-app.use('/public', publicLimiter)
+// CORS setup
+import cors from 'cors'
+app.use(
+  cors({
+    origin: process.env.WEB_ORIGIN,
+    credentials: true,
+  }),
+)
 
-app.get('/health', (_req, res) => res.json({ ok: true, uptime: process.uptime() }))
+// Basic rate limit on auth endpoints
+app.use('/auth', rateLimit({ windowMs: 60_000, max: 20, standardHeaders: true }))
 
-app.use('/public', publicRouter)
+// Routes
+app.use('/auth', authRoutes)
+app.use('/staff', staffRoutes)
+app.use('/customer', customerRoutes)
+app.use('/public', publicRoutes)
 
-app.listen(PORT, () => {
-  console.log(`API listening on http://localhost:${PORT}`)
+const port = Number(process.env.PORT || 3020)
+app.listen(port, () => {
+  console.log(`API listening on http://localhost:${port}`)
 })

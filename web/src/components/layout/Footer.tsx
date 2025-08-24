@@ -1,20 +1,19 @@
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div
-        className="container"
-        style={{
-          display: "grid",
-          gap: 24,
-          gridTemplateColumns: "1fr 1fr 1fr 1fr",
-        }}
-      >
+    <footer className="site-footer">
+      <div className="container footer-grid">
         <div>
-          <h4 style={{ marginTop: 0, color: "#e2e8f0" }}>Capital Trust</h4>
-          <p style={{ margin: 0, fontSize: "0.9rem" }}>
+          <img
+            src="/CapitalTrustLogoInverse.svg"
+            alt="Capital Trust"
+            width={160}
+            height={32}
+          />
+          <p className="muted" style={{ marginTop: 8 }}>
             Banking that works as hard as you do.
           </p>
         </div>
+
         <div>
           <strong>Banking</strong>
           <ul>
@@ -27,36 +26,44 @@ export default function Footer() {
             <li>
               <a href="/investing">Investing</a>
             </li>
-          </ul>
-        </div>
-        <div>
-          <strong>Resources</strong>
-          <ul>
             <li>
               <a href="/rates">Rates</a>
             </li>
+          </ul>
+        </div>
+
+        <div>
+          <strong>Support</strong>
+          <ul>
             <li>
-              <a href="/support">Support</a>
+              <a href="/support">Contact us</a>
             </li>
             <li>
-              <a href="/open-account">Open an account</a>
+              <a href="/support">Security</a>
+            </li>
+            <li>
+              <a href="/support">Accessibility</a>
             </li>
           </ul>
         </div>
+
         <div>
           <strong>Legal</strong>
           <ul>
-            <li>Security</li>
-            <li>Privacy</li>
-            <li>Terms</li>
+            <li>
+              <a href="/support">Privacy</a>
+            </li>
+            <li>
+              <a href="/support">Terms</a>
+            </li>
           </ul>
         </div>
       </div>
-      <div
-        className="container"
-        style={{ marginTop: 16, fontSize: "0.85rem", color: "#93a3b8" }}
-      >
-        © {new Date().getFullYear()} Capital Trust. All rights reserved.
+
+      <div className="footer-bottom">
+        <div className="container">
+          © {new Date().getFullYear()} Capital Trust. All rights reserved.
+        </div>
       </div>
     </footer>
   );

@@ -1,32 +1,40 @@
 export default function Investing() {
   return (
-    <div className="container" style={{ padding: "40px 0" }}>
-      <h1 style={{ fontFamily: "var(--font-serif)" }}>Investing</h1>
-      <p style={{ color: "var(--ct-slate)" }}>
-        Simple, tax-efficient options for long-term goals.
+    <div className="container" style={{ padding: "32px 0" }}>
+      <h2 style={{ marginTop: 0 }}>Investing</h2>
+      <p style={{ color: "var(--ct-slate)", marginBottom: 20 }}>
+        Simple, diversified portfolios and tax-advantaged accounts.
       </p>
+
       <div
         style={{
           display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
           gap: 16,
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          marginTop: 16,
         }}
       >
         <div className="card">
-          <strong>GICs</strong>
-          <p>Guaranteed returns. Ladder strategies available.</p>
-          <a href="/rates">See rates →</a>
-        </div>
-        <div className="card">
           <strong>TFSA</strong>
-          <p>Grow savings tax-free with flexible withdrawals.</p>
+          <p style={{ margin: "8px 0 12px" }}>
+            Grow investments tax-free; withdraw anytime.
+          </p>
           <a href="/open-account">Open TFSA →</a>
         </div>
+
         <div className="card">
           <strong>RRSP</strong>
-          <p>Save for retirement with tax-deferred growth.</p>
+          <p style={{ margin: "8px 0 12px" }}>
+            Contribute pre-tax income and defer taxes to retirement.
+          </p>
           <a href="/open-account">Open RRSP →</a>
+        </div>
+
+        <div className="card">
+          <strong>Managed portfolios</strong>
+          <p style={{ margin: "8px 0 12px" }}>
+            Professionally built ETF portfolios with low fees.
+          </p>
+          <a href="/support">Learn more →</a>
         </div>
       </div>
     </div>
