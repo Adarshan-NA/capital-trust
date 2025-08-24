@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { AuthAPI } from "@/state/auth-client";
-import { AuthContext, type User } from "@/state/auth-context";
+import { AuthAPI } from "../state/auth-client";
+import { AuthContext, type User } from "../state/auth-context";
+
 
 export default function AuthProvider({
   children,
