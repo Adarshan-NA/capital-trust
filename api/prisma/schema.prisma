@@ -66,6 +66,8 @@ enum RiskLevel {
 enum AuditEvent {
   case_created
   risk_scored
+  decision_made
+  note_added
 }
 
 model Customer {
@@ -89,9 +91,10 @@ model Case {
   id           String         @id @default(cuid())
   customerId   String
   customer     Customer       @relation(fields: [customerId], references: [id])
+  notes     CaseNote[]
   documentType DocumentType
   employment   Employment
-  income       String         // keep simple to mirror UI values like "50k-100k"
+  income       String         
   intendedUse  IntendedUse
   status       CaseStatus     @default(submitted)
   submittedAt  DateTime       @default(now())
@@ -121,10 +124,36 @@ model AuditLog {
   @@index([caseId])
 }
 
-/* keep from earlier experiments so old routes still compile */
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
   name      String?
   createdAt DateTime @default(now())
+}
+
+enum StaffRole {
+  analyst
+  admin
+}
+
+model StaffUser {
+  id           String    @id @default(cuid())
+  email        String    @unique
+  passwordHash String
+  role         StaffRole @default(analyst)
+  createdAt    DateTime  @default(now())
+  notes        CaseNote[]
+}
+
+model CaseNote {
+  id        String    @id @default(cuid())
+  caseId    String
+  authorId  String
+  body      String
+  createdAt DateTime  @default(now())
+
+  case      Case      @relation(fields: [caseId], references: [id])
+  author    StaffUser @relation(fields: [authorId], references: [id])
+
+  @@index([caseId, createdAt])
 }

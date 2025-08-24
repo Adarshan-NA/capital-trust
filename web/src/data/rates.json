@@ -1,0 +1,16 @@
+{
+  "savings": [
+    { "product": "High-Interest Savings (promotional, 3 mo.)", "rate": 3.25 },
+    { "product": "High-Interest Savings (standard)", "rate": 2.1 }
+  ],
+  "gic": [
+    { "term": "1-year GIC", "rate": 4.1 },
+    { "term": "2-year GIC", "rate": 4.0 },
+    { "term": "5-year GIC", "rate": 3.85 }
+  ],
+  "mortgage": [
+    { "term": "2-yr fixed", "rate": 5.24 },
+    { "term": "5-yr fixed", "rate": 4.89 },
+    { "term": "5-yr variable (prime − 0.30%)", "rate": 6.2 }
+  ]
+}

@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "postbuild": "cp dist/index.html dist/200.html"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",

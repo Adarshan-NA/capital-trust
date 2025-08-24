@@ -1,35 +1,42 @@
 export default function Personal() {
   return (
-    <div className="container" style={{ padding: "40px 0" }}>
-      <h1 style={{ fontFamily: "var(--font-serif)" }}>Personal banking</h1>
-      <p style={{ color: "var(--ct-slate)" }}>
-        Everyday accounts built around clarity and value.
-      </p>
-      <div
-        style={{
-          display: "grid",
-          gap: 16,
-          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-          marginTop: 16,
-        }}
-      >
-        <div className="card">
-          <strong>Capital Chequing</strong>
-          <p>
-            No monthly fee with a minimum balance. Interac e-Transfers included.
+    <div className="container" style={{ padding: "32px 0" }}>
+      <section className="hero-slim">
+        <h1>Personal banking</h1>
+        <p className="muted">
+          Everyday chequing, savings, and cards—simple, transparent,
+          digital-first.
+        </p>
+      </section>
+
+      <div className="grid-3">
+        <article className="card">
+          <h3>Capital Chequing</h3>
+          <p className="muted">
+            No monthly fee with minimum balance, free Interac e-Transfers®.
           </p>
-          <a href="/open-account">Open now →</a>
-        </div>
-        <div className="card">
-          <strong>High-Interest Savings</strong>
-          <p>Earn a promotional rate for the first 3 months. No minimums.</p>
-          <a href="/open-account">Start saving →</a>
-        </div>
-        <div className="card">
-          <strong>Cashback Credit</strong>
-          <p>1.5% back on everyday purchases. No annual fee.</p>
-          <a href="/open-account">Apply →</a>
-        </div>
+          <a className="btn" href="/open-account">
+            Open an account →
+          </a>
+        </article>
+        <article className="card">
+          <h3>High-Interest Savings</h3>
+          <p className="muted">
+            Earn a promotional rate for the first 3 months. No minimums.
+          </p>
+          <a className="btn" href="/open-account">
+            Start saving →
+          </a>
+        </article>
+        <article className="card">
+          <h3>Cashback Credit</h3>
+          <p className="muted">
+            1.5% back on everyday purchases, no foreign transaction fees.
+          </p>
+          <a className="btn" href="/open-account">
+            Get the card →
+          </a>
+        </article>
       </div>
     </div>
   );

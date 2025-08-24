@@ -8,10 +8,13 @@
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
     "lint": "eslint .",
+    "migrate:deploy": "prisma migrate deploy",
+    "generate": "prisma generate",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "prisma:generate": "pnpm exec prisma generate",
     "prisma:migrate": "pnpm exec prisma migrate dev",
-    "prisma:studio": "pnpm exec prisma studio"
+    "prisma:studio": "pnpm exec prisma studio",
+    "seed": "tsx src/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +22,8 @@
   "packageManager": "pnpm@10.14.0",
   "dependencies": {
     "@prisma/client": "^6.13.0",
+    "bcryptjs": "^3.0.2",
+    "cookie-session": "^2.1.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
@@ -28,6 +33,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@types/cookie-session": "^2.0.49",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^24.2.1",
